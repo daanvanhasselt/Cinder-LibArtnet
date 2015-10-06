@@ -327,7 +327,7 @@ static int get_ifaces(iface_t **if_head) {
     }
 #endif
 
-    ptr += sizeof(ifr->ifr_name) + len;
+     ptr = ((char*)ptr +_SIZEOF_ADDR_IFREQ(*ifr));
 
     // look for AF_INET interfaces
     if (ifr->ifr_addr.sa_family == AF_INET) {
