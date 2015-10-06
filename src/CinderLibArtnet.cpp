@@ -44,7 +44,7 @@ bool Node::setup(std::string _ip_addr, bool _sendRaw, uint8_t _subnet_addr)
     subnet_addr = _subnet_addr;
     sendRaw = _sendRaw;
     
-    artnetNode  = artnet_new(ip_addr.c_str(), 0);//int = verbose
+    artnetNode  = artnet_new(ip_addr.length() == 0 ? NULL :ip_addr.c_str(), 0);//int = verbose
     //@todo: allow for multiple nodes then artnet_join(artnetNode1, artnetNodeN)
     
     if (!artnetNode) {
